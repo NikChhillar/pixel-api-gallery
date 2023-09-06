@@ -5,6 +5,8 @@ import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
+export const revalidate = 3600
+
 export const metadata: Metadata = {
   title: 'Photo Store',
   description: 'Created using nextjs and pixel api',
