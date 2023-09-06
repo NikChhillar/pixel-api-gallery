@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import Search from './Search'
 
 const Navbar = () => {
     return (
@@ -8,6 +9,7 @@ const Navbar = () => {
                 <h1 className='text-2xl sm:text-3xl text-center whitespace-nowrap'>
                     <Link href={'/'}>Photo Store</Link>
                 </h1>
+                <Search />
             </nav>
         </header>
     )
