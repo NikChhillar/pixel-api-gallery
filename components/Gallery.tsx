@@ -3,6 +3,7 @@ import { ImagesResults } from "@/models/Images";
 import ImageCon from "./ImageCon";
 import addBlurredDataUrls from "@/lib/getBase64";
 import Footer from "./Footer";
+import getPrevNextPages from "@/lib/getPreNextPages";
 
 type Props = {
   topic?: string | undefined;
@@ -31,6 +32,10 @@ const Gallery = async ({ topic = "curated", page }: Props) => {
 
   const photoWithBlur = await addBlurredDataUrls(images);
 
+  const { prevPage, nextPage } = getPrevNextPages(images);
+
+  const footerProps = { topic, page, nextPage, prevPage };
+
   return (
     <>
       <section className="px-1 my-3 grid grid-cols-gallery auto-rows-[10px]">
@@ -38,7 +43,7 @@ const Gallery = async ({ topic = "curated", page }: Props) => {
           <ImageCon key={photo.id} photo={photo} />
         ))}
       </section>
-      <Footer />
+      <Footer {...footerProps} />
     </>
   );
 };
