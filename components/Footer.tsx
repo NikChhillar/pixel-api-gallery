@@ -37,11 +37,11 @@ const Footer = ({ topic, page, prevPage, nextPage }: Props) => {
         &lt;&lt;&lt; {!nextPage ? "back" : null}
       </Link>
 
-      {pageNums.map((num) =>
+      {pageNums.map((num, i) =>
         page && num === parseInt(page) ? (
-          num
+          <span key={i}>{num}</span>
         ) : (
-          <Link href={`/results/${topic}/${num}`} className="underline">
+          <Link key={i} href={`/results/${topic}/${num}`} className="underline">
             {num}
           </Link>
         )
