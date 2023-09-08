@@ -10,11 +10,16 @@ export default function getPrevNextPages(images: ImagesResults) {
 
   const prevPage = images?.prev_page ? getPageNumber(images.prev_page) : null;
 
-  const totalPages = Math.ceil(images.total_results / images.per_page);
+  const totalPages =
+    images.total_results % images.per_page
+      ? Math.ceil(images.total_results / images.per_page)
+      : images.total_results / images.per_page + 1;
 
-  if (prevPage && parseInt(prevPage) + 5 <= totalPages) {
+  if (prevPage && parseInt(prevPage) + 5 < totalPages) {
     nextPage = (parseInt(prevPage) + 5).toString();
   }
+
+  if (nextPage && parseInt(nextPage) >= totalPages) nextPage = null;
 
   return { prevPage, nextPage };
 }
