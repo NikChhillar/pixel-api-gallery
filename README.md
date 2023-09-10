@@ -2,6 +2,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 Demo [here](https://photo-store-nikchhillar.vercel.app/)
 
+This project will be used for anime pics section for upcoming major project
+
+
 ## Getting Started
 
 First, run the development server:
